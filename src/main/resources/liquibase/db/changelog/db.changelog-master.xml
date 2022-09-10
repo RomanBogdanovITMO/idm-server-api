@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet id="2022-08-12--12-50" author="Roman Bogdanov">
+        <createTable tableName="users">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" primaryKeyName="users_id_pk" />
+            </column>
+            <column name="email" type="varchar(150)" >
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="password" type="varchar(100)" ></column>
+            <column name="first_name" type="varchar(250)" ></column>
+            <column name="status" type="varchar(250)" ></column>
+            <column name="nick_name" type="varchar(250)" >
+                <constraints unique="true" uniqueConstraintName="users_nick_name_unq"></constraints>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
